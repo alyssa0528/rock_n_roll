@@ -1,1 +1,3 @@
 #executable file
+
+require "./lib/rock_n_roll"

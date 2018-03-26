@@ -13,4 +13,11 @@ Welcome user with message and list of cities where races are being held.
 
 Ask user which race they'd like more info about.
 
-Provide info: date(s), distances, hashtag, schedule? (might be complicated), social media links
+User inputs a number corresponding to the race they'd like to learn more about.
+
+Provide info:
+[ ] date(s)
+[ ] distances
+[ ] race hashtag
+[ ] social media links
+[ ] schedule? (might be complicated...races don't seem to have schedules in same areas)
