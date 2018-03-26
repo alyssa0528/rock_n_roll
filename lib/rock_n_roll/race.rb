@@ -33,6 +33,8 @@ class RockNRoll::Race
     race_2.twitter = "https://twitter.com/runrocknroll"
     race_2.facebook = "https://www.facebook.com/runrocknroll"
     race_2.instagram = "http://instagram.com/runrocknroll"
+
+    [race_1, race_2]
 #    @@race #returns all instances of Race
   end
 end
