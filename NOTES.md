@@ -2,7 +2,7 @@
 2. [x] Start with project structure
 3. [x] Start with entry point (file run)
 4. [x] Force that to build CLI Interface
-5. [ ] Stub out interface
+5. [x] Stub out interface
 6. [ ] Start making things real!
 7. [ ] Discover objects
 8. [ ] Code!
