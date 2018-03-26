@@ -36,4 +36,17 @@ class RockNRoll::Race
     [race_1, race_2]
 #    @@race #returns all instances of Race
   end
+
+  def self.scrape_main
+    html = open("http://www.runrocknroll.com/")
+    doc = Nokogiri::HTML(html)
+    location = doc.css("h5 a").text
+    url = doc.css("h5 a").attribute("href").text
+    binding.pry
+  end
+
+  def self.scrape_race_details
+
+  end
+
 end
