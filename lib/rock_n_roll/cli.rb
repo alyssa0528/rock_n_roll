@@ -8,7 +8,10 @@ class RockNRoll::CLI
   end
 
   def show_list #read more on here doc
-    RockNRoll::Race.all
+    @races = RockNRoll::Race.all
+    @races.each.with_index(1) do |race, index|
+      puts "#{index}. #{race.location}"
+    end
     # => puts <<-DOC.gsub /^\s*/, ''
     # => Rock 'n' Roll Race Locations for 2018–2019:
     # => 1. Luoping
@@ -21,15 +24,12 @@ class RockNRoll::CLI
     while input != "exit"
       puts "Enter the number of the race you'd like more information about. Alternatively, type 'list' to see the full list of races, or type exit:"
       input = gets.strip.downcase
-    case input
-    when "1"
-      puts "race details on race 1"
-    when "2"
-      puts "race details on race 2"
-    when "list"
-      show_list
-    else
-      puts "Sorry, please enter a valid number or type 'list' or 'exit':"
+      if input.to_i > 0
+        show_list[input.to_i - 1]
+      elsif input == "list"
+        show_list
+      else
+        puts "Sorry, please enter a valid number or type 'list' or 'exit':"
     end
     end
   end

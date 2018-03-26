@@ -8,11 +8,11 @@ class RockNRoll::Race
 #  end
 
   def self.all
-    puts <<-DOC.gsub /^\s*/, ''
-    Rock 'n' Roll Race Locations for 2018–2019:
-    1. Luoping
-    2. Carlsbad 5000
-    DOC
+    #puts <<-DOC.gsub /^\s*/, ''
+    #Rock 'n' Roll Race Locations for 2018–2019:
+    #1. Luoping
+    #2. Carlsbad 5000
+    #DOC
     race_1 = self.new
     race_1.location = "Luoping"
     race_1.url = "http://www.runrocknroll.com/luoping/"
