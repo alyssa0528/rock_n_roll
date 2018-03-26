@@ -1,3 +1,5 @@
-#executable file
+#!/usr/bin/env ruby 
 
 require "./lib/rock_n_roll"
+
+RockNRoll::CLI.new.call
