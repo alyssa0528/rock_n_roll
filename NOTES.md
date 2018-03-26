@@ -1,7 +1,7 @@
-1. [ ] Plan gem, imagine Interface
-2. [ ] Start with project structure
-3. [ ] Start with entry point (file run)
-4. [ ] Force that to build CLI Interface
+1. [x] Plan gem, imagine Interface
+2. [x] Start with project structure
+3. [x] Start with entry point (file run)
+4. [x] Force that to build CLI Interface
 5. [ ] Stub out interface
 6. [ ] Start making things real!
 7. [ ] Discover objects
