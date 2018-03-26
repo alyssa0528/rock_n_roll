@@ -2,10 +2,9 @@ class RockNRoll::Race
   attr_accessor :location, :url, :date, :distances, :hashtag, :twitter, :facebook, :instagram
 
 
-#@@race = []
+#@race = []
 
 #  def initialize
-#    @@race << self
 #  end
 
   def self.all
