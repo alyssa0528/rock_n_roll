@@ -8,11 +8,12 @@ class RockNRoll::CLI
   end
 
   def show_list #read more on here doc
-    puts <<-DOC.gsub /^\s*/, ''
-    Rock 'n' Roll Race Locations for 2018–2019:
-    1. Luoping
-    2. Carlsbad 5000
-    DOC
+    RockNRoll::Race.all
+    # => puts <<-DOC.gsub /^\s*/, ''
+    # => Rock 'n' Roll Race Locations for 2018–2019:
+    # => 1. Luoping
+    # => 2. Carlsbad 5000
+    # => DOC
   end
 
   def menu
