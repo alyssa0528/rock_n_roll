@@ -4,7 +4,7 @@ class RockNRoll::CLI
     puts "~~~~~Welcome to the Rock 'n' Roll 2018-19 races!~~~~~"
     sleep(2)
     RockNRoll::Scraper.new.scrape_races
-    show_list #
+    show_list
     menu
   end
 
@@ -21,7 +21,7 @@ class RockNRoll::CLI
       puts "Enter the number of the race you'd like more information about. Alternatively, type 'list' to see the full list of races, or type 'exit':"
       input = gets.strip.downcase
       if input.to_i > 0
-        show_list[input.to_i - 1]
+        show_list[input.to_i - 1] #update this! 
       elsif input == "list"
         show_list
       elsif input == "exit"
@@ -40,7 +40,7 @@ class RockNRoll::CLI
   end
 
   def exit_program
-    puts "Thanks for checking, and keep training!"
+    puts "Thanks for checking, and keep on training!"
   end
 
 end
