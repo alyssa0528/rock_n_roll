@@ -24,9 +24,8 @@ class RockNRoll::Scraper
       @doc = Nokogiri::HTML(open(website)) #get HTML of each indiv race site
 
       @doc.search("#hero").each do |header| #loops through the urls, specifically the header section at top of page
-
+        binding.pry
         @race.date = header.css("span.subhead").attribute("datetime").value
-        @race.save
       end
 
       @doc.search("#ribbon").each do |social_media|
@@ -35,8 +34,7 @@ class RockNRoll::Scraper
         @race.facebook = social_media.css("div.facebook a").attribute("href").text
         @race.instagram = social_media.css("div.instagram a").attribute("href").text
       #  binding.pry
-        @race.save
-        binding.pry
+        #binding.pry
       end
     end
   end

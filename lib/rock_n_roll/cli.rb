@@ -11,6 +11,7 @@ class RockNRoll::CLI
   def show_list
     @races = RockNRoll::Race.all #@@all
     @races.each.with_index(1) do |race, index|
+      binding.pry
       puts "#{index}. #{race.location}"
     end
   end
@@ -21,7 +22,8 @@ class RockNRoll::CLI
       puts "Enter the number of the race you'd like more information about. Alternatively, type 'list' to see the full list of races, or type 'exit':"
       input = gets.strip.downcase
       if input.to_i > 0
-        RockNRoll::Scraper.new.scrape_race_details[input.to_i - 1] #update this!
+        RockNRoll::Scraper.new.scrape_race_details[input.to_i - 1]
+        puts "Date: #{@race.date} - Event hashtag: #{@race.hashtag} - Twitter: #{@race.twitter} - Facebook: #{@race.facebook} - Instagram: #{@race.instagram}"
       elsif input == "list"
         show_list
       elsif input == "exit"
