@@ -1,14 +1,14 @@
 class RockNRoll::CLI
 
   def call
+    puts "~~~~~Welcome to the Rock 'n' Roll 2018-19 races!~~~~~"
+    sleep(2)
     RockNRoll::Scraper.new.scrape_races
     show_list #
     menu
-    #show_details
-    exit_program
   end
 
-  def show_list #read more on here doc
+  def show_list
     @races = RockNRoll::Race.all #@@all
     @races.each.with_index(1) do |race, index|
       puts "#{index}. #{race.location}"
@@ -24,18 +24,20 @@ class RockNRoll::CLI
         show_list[input.to_i - 1]
       elsif input == "list"
         show_list
+      elsif input == "exit"
+        exit_program
       else
         puts "Sorry, please enter a valid number or type 'list' or 'exit':"
-    end
+      end
     end
   end
 
-  #def show_details
-  #  puts "race date"
-  #  puts "race distances"
-  #  puts "race hashtag"
-  #  puts "race social media links"
-  #end
+  def show_details
+    puts "race date"
+    puts "race distances"
+    puts "race hashtag"
+    puts "race social media links"
+  end
 
   def exit_program
     puts "Thanks for checking, and keep training!"

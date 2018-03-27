@@ -4,10 +4,24 @@ class RockNRoll::Scraper
     @url = url
   end
 
-  #def scrape
-  #  @races = []
-  #  @races << self.scrape_main
-  #end
+  def scrape_race_details
+    RockNRoll::Race.all.each do |race|
+       race.url #creates new array
+         binding.pry
+       #html = open(race.url)
+       #@doc = Nokogiri::HTML(html)
+      #  @doc.search("#hero").each do |header|
+    #      @race.date = header.css("h1.bigtext-line1 span").attribute("datetime").text
+      #  end
+      end
+    end
+
+
+    #@doc = Nokogiri::HTML(open(@url))
+    #@doc.search("#hero").each do |header|
+      #binding.pry
+      #@race.date = header.css("h1.bigtext-line1 span").attribute("datetime").text
+    #end
 
 #scrape main page with list of all races
 #use this data to instantiate new objects of Race
@@ -15,19 +29,13 @@ class RockNRoll::Scraper
     html = open("http://www.runrocknroll.com/")
     @doc = Nokogiri::HTML(html)
     @doc.search("div.mix").each do |race_div|
-      race = RockNRoll::Race.new #Scraper collaborates with Race class
+      @race = RockNRoll::Race.new #Scraper collaborates with Race class
 
-      race.location = race_div.css("h5 a").text
-      race.url = race_div.css("h5 a").attribute("href").text
-      race.save #save method in Race
+      @race.location = race_div.css("h5 a").text
+      @race.url = race_div.css("h5 a").attribute("href").text
+      @race.save
+      RockNRoll::Race.all #save method in Race
       #binding.pry
     end
-  end
-
-  def scrape_race_details
-    html = open(@url)
-    @doc = Nokogiri::HTML(html)
-    @doc.search()
-  #binding.pry
   end
 end
