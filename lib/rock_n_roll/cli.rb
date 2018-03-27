@@ -1,7 +1,7 @@
 class RockNRoll::CLI
 
   def call
-    show_list
+    RockNRoll::Scraper.new.scrape_races #show_list
     menu
     #show_details
     exit_program
@@ -19,20 +19,20 @@ class RockNRoll::CLI
     # => DOC
   end
 
-  def menu
-    input = nil
-    while input != "exit"
-      puts "Enter the number of the race you'd like more information about. Alternatively, type 'list' to see the full list of races, or type exit:"
-      input = gets.strip.downcase
-      if input.to_i > 0
-        show_list[input.to_i - 1]
-      elsif input == "list"
-        show_list
-      else
-        puts "Sorry, please enter a valid number or type 'list' or 'exit':"
-    end
-    end
-  end
+  #def menu
+  #  input = nil
+  #  while input != "exit"
+  #    puts "Enter the number of the race you'd like more information about. Alternatively, type 'list' to see the full list of races, or type exit:"
+  #    input = gets.strip.downcase
+  #    if input.to_i > 0
+  #      show_list[input.to_i - 1]
+  #    elsif input == "list"
+  #      show_list
+  #    else
+  #      puts "Sorry, please enter a valid number or type 'list' or 'exit':"
+  #  end
+  #  end
+  #end
 
   #def show_details
   #  puts "race date"
