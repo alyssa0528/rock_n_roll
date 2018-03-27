@@ -4,13 +4,6 @@ class RockNRoll::Scraper
     @url = url
   end
 
-
-    #@doc = Nokogiri::HTML(open(@url))
-    #@doc.search("#hero").each do |header|
-      #binding.pry
-      #@race.date = header.css("h1.bigtext-line1 span").attribute("datetime").text
-    #end
-
 #scrape main page with list of all races
 #use this data to instantiate new objects of Race
   def scrape_races
@@ -30,21 +23,29 @@ class RockNRoll::Scraper
     @all_races.collect {|r| r.url}.each do |website| #creates new array of just urls
       @doc = Nokogiri::HTML(open(website)) #get HTML of each indiv race site
 
-      @doc.search("wrapper mid").each do |social_media|
-        binding.pry
+      @doc.search("#hero").each do |header| #loops through the urls, specifically the header section at top of page
+
+        @race.date = header.css("span.subhead").attribute("datetime").value
+        @race.save
+      end
+
+      @doc.search("#ribbon").each do |social_media|
         @race.hashtag = social_media.css("div.hash").text
         @race.twitter = social_media.css("div.twitter a").attribute("href").text
         @race.facebook = social_media.css("div.facebook a").attribute("href").text
         @race.instagram = social_media.css("div.instagram a").attribute("href").text
-      end
-      @doc.search("#hero").each do |header| #loops through the urls, specifically the header section at top of page
-        @race.date = header.css("span.subhead").attribute("datetime").value
+      #  binding.pry
+        @race.save
+        binding.pry
       end
     end
   end
-       #html = open(race.url)
-       #@doc = Nokogiri::HTML(html)
-      #  @doc.search("#hero").each do |header|
-    #      @race.date = header.css("h1.bigtext-line1 span").attribute("datetime").text
-      #  end
+
+      #@doc.search("#races").each do |distance|
+      #  binding.pry
+      #  @race.distances = distance.css("h3").text
+      #end
+
+  def scrape_race_distances
+  end
 end

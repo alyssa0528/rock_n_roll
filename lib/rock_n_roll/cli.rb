@@ -21,7 +21,7 @@ class RockNRoll::CLI
       puts "Enter the number of the race you'd like more information about. Alternatively, type 'list' to see the full list of races, or type 'exit':"
       input = gets.strip.downcase
       if input.to_i > 0
-        show_list[input.to_i - 1] #update this! 
+        RockNRoll::Scraper.new.scrape_race_details[input.to_i - 1] #update this!
       elsif input == "list"
         show_list
       elsif input == "exit"
