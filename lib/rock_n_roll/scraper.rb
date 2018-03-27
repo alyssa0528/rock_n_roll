@@ -15,18 +15,19 @@ class RockNRoll::Scraper
     html = open("http://www.runrocknroll.com/")
     @doc = Nokogiri::HTML(html)
     @doc.search("div.mix").each do |race_div|
-      race = RockNRoll::Race.new
-      binding.pry
+      race = RockNRoll::Race.new #Scraper collaborates with Race class
+
       race.location = race_div.css("h5 a").text
       race.url = race_div.css("h5 a").attribute("href").text
+      race.save #save method in Race
+      #binding.pry
     end
-    race.save
-  #binding.pry
   end
 
   def scrape_race_details
-    html = open("http://www.runrocknroll.com/san-francisco/")
-    doc = Nokogiri::HTML(html)
+    html = open(@url)
+    @doc = Nokogiri::HTML(html)
+    @doc.search()
   #binding.pry
   end
 end
