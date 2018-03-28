@@ -4,7 +4,7 @@ class RockNRoll::Race
   #@@all stores all instances of race
   @@all = []
 
-  def initialize 
+  def initialize(location = nil, url = nil, date = nil, distances = nil, hashtag = nil, twitter = nil, facebook = nil, instagram = nil)
     @location = location 
     @url = url 
     @date = date
@@ -13,6 +13,7 @@ class RockNRoll::Race
     @twitter = twitter
     @facebook = facebook 
     @instagram = instagram
+    @@all << self 
   end 
 
   def save
