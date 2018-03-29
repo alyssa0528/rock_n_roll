@@ -14,17 +14,17 @@ class RockNRoll::Scraper
 
       @race.location = race_div.css("h5 a").text
       @race.url = race_div.css("h5 a").attribute("href").text
-      @all_races = @race.save #save method in Race
+      RockNRoll::Race.all #@all_races = @race.save #save method in Race
     end
   end
 
   def scrape_race_details
     scrape_races
-    @all_races.collect {|r| r.url}.each do |website| #creates new array of just urls
+    RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
       @doc = Nokogiri::HTML(open(website)) #get HTML of each indiv race site
 
       @doc.search("#hero").each do |header| #loops through the urls, specifically the header section at top of page
-        binding.pry
+        #binding.pry
         @race.date = header.css("span.subhead").attribute("datetime").value
       end
 

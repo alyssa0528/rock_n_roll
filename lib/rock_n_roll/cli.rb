@@ -11,7 +11,7 @@ class RockNRoll::CLI
   def show_list
     @races = RockNRoll::Race.all #@@all
     @races.each.with_index(1) do |race, index|
-      binding.pry
+      #binding.pry
       puts "#{index}. #{race.location}"
     end
   end
