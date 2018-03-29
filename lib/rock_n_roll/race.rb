@@ -21,4 +21,8 @@ class RockNRoll::Race
     @@all
   end
 
+  def self.retrieve(input)
+    self.all[input.to_i - 1] #takes user's input, subtracts 1, and uses that value as the index to retrieve from @@all
+  end
+
 end

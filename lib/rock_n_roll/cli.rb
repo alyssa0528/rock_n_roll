@@ -22,8 +22,11 @@ class RockNRoll::CLI
       puts "Enter the number of the race you'd like more information about. Alternatively, type 'list' to see the full list of races, or type 'exit':"
       input = gets.strip.downcase
       if input.to_i > 0
-        RockNRoll::Scraper.new.scrape_race_details[input.to_i - 1]
-        puts "Date: #{@race.date} - Event hashtag: #{@race.hashtag} - Twitter: #{@race.twitter} - Facebook: #{@race.facebook} - Instagram: #{@race.instagram}"
+        #Call RockNRoll::Race.all to pull up the @@all array, and from there, input.to_1 -1 will retrieve appropriate race details.
+        #needs retrieve method
+        #RockNRoll::Scraper.new.scrape_race_details[input.to_i - 1]
+        race = RockNRoll::Race.retrieve(input.to_i)
+        show_details(race)
       elsif input == "list"
         show_list
       elsif input == "exit"
@@ -34,11 +37,13 @@ class RockNRoll::CLI
     end
   end
 
-  def show_details
-    puts "race date"
-    puts "race distances"
-    puts "race hashtag"
-    puts "race social media links"
+  def show_details(race)
+    puts "~*~*~*~* Details for #{race.location} ~*~*~*~*"
+    puts "Date(s):              #{race.date}"
+    puts "Distance(s):          #{race.distances}"
+    puts "Description:          #{race.description}"
+    puts "Event Hashtag:        #{race.hashtag}"
+    puts "Event URL:            #{race.url}"
   end
 
   def exit_program

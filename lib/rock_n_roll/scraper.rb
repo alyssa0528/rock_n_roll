@@ -1,8 +1,8 @@
 class RockNRoll::Scraper
 
-  def initialize(url = nil)
-    @url = url
-  end
+  ##def initialize(url = nil)
+  ##  @url = url
+  ##end
 
 #scrape main page with list of all races
 #use this data to instantiate new objects of Race
@@ -30,9 +30,9 @@ class RockNRoll::Scraper
 
       @doc.search("#ribbon").each do |social_media|
         @race.hashtag = social_media.css("div.hash").text
-        @race.twitter = social_media.css("div.twitter a").attribute("href").text
-        @race.facebook = social_media.css("div.facebook a").attribute("href").text
-        @race.instagram = social_media.css("div.instagram a").attribute("href").text
+      #  @race.twitter = social_media.css("div.twitter a").attribute("href").text
+      #  @race.facebook = social_media.css("div.facebook a").attribute("href").text
+      #  @race.instagram = social_media.css("div.instagram a").attribute("href").text
       #  binding.pry
         #binding.pry
       end
