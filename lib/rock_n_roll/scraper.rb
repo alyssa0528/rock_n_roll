@@ -18,14 +18,20 @@ class RockNRoll::Scraper
     end
   end
 
-  def scrape_race_details
+  def race_site #method that parses indiv race site
     scrape_races
     RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
-      @doc = Nokogiri::HTML(open(website)) #get HTML of each indiv race site
+      @doc = Nokogiri::HTML(open(website))
+    end
+  end
 
+  def scrape_race_details
+    #scrape_races
+    #RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
+    #  @doc = Nokogiri::HTML(open(website)) #get HTML of each indiv race site
       @doc.search("#hero").each do |header| #loops through the urls, specifically the header section at top of page
-        #binding.pry
         @race.date = header.css("span.subhead").attribute("datetime").value
+        binding.pry
       end
 
       @doc.search("#ribbon").each do |social_media|
@@ -36,7 +42,6 @@ class RockNRoll::Scraper
       #  binding.pry
         #binding.pry
       end
-    end
   end
 
       #@doc.search("#races").each do |distance|

@@ -2,7 +2,7 @@ class RockNRoll::CLI
 
   def call
     puts "~~~~~Welcome to the Rock 'n' Roll 2018-19 races!~~~~~"
-    sleep(2)
+    sleep(1)
     RockNRoll::Scraper.new.scrape_races
     show_list
     menu
@@ -11,7 +11,6 @@ class RockNRoll::CLI
   def show_list
     @races = RockNRoll::Race.all #@@all
     @races.each.with_index(1) do |race, index|
-      #binding.pry
       puts "#{index}. #{race.location}"
     end
   end
