@@ -20,7 +20,6 @@ class RockNRoll::Scraper
       scrape_race_hashtag
       scrape_race_distances
       #binding.pry
-      #binding.pry
     end
     #@race_site = Nokogiri::HTML(open(@race.url))
     #binding.pry
@@ -64,9 +63,10 @@ class RockNRoll::Scraper
   end
 
   def scrape_race_distances
-    @site = Nokogiri::HTML(open(@race.url"#{the-races/distances/}"))
+    @distance_url = @race.url + "the-races/distances"
+    @site = Nokogiri::HTML(open(@distance_url))
     @site.search("div.sidenav").each do |distance|
-      @race.distances = distance.css(".ui-state-default").text
+      @race.distances = distance.css("a").text
     end
   end
 
