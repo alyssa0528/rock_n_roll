@@ -22,27 +22,37 @@ class RockNRoll::Scraper
     scrape_races
     RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
       @doc = Nokogiri::HTML(open(website))
+      binding.pry
     end
   end
 
-  def scrape_race_details
+  def dates
+    @race.date
+  end
+
+  #def scrape_race_details
     #scrape_races
     #RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
     #  @doc = Nokogiri::HTML(open(website)) #get HTML of each indiv race site
-      @doc.search("#hero").each do |header| #loops through the urls, specifically the header section at top of page
-        @race.date = header.css("span.subhead").attribute("datetime").value
-        binding.pry
-      end
+  #    @doc.search("#hero").each do |header| #loops through the urls, specifically the header section at top of page
+  #      @race.date = header.css("span.subhead").attribute("datetime").value
+        #binding.pry
+  #    end
 
-      @doc.search("#ribbon").each do |social_media|
-        @race.hashtag = social_media.css("div.hash").text
+  #    @doc.search("#features").each do |info_box|
+  #      binding.pry
+  #      @race.description = info_box.css("div.column.first p").text
+
+  #    @doc.search("#ribbon").each do |social_media|
+  #      @race.hashtag = social_media.css("div.hash").text
       #  @race.twitter = social_media.css("div.twitter a").attribute("href").text
       #  @race.facebook = social_media.css("div.facebook a").attribute("href").text
       #  @race.instagram = social_media.css("div.instagram a").attribute("href").text
       #  binding.pry
         #binding.pry
-      end
-  end
+  #    end
+  #  end
+  #end
 
       #@doc.search("#races").each do |distance|
       #  binding.pry

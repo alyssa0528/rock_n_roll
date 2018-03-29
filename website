@@ -1,0 +1,88 @@
+=> [[32m#<RockNRoll::Race:0x00000001520138[0m @location[32m=[0m[1;36mnil[0m, @url[32m=[0m[1;36mnil[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c92818[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mGuangzhou[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/guangzhou/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c909c8[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mSan Francisco[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/san-francisco/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c86540[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mRaleigh[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/raleigh/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c7bbb8[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mMadrid[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/madrid/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c78030[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mNashville[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/nashville/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c65818[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mOaxaca[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/oaxaca/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c61128[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mLiverpool[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/liverpool/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c55c60[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mSan Diego[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/san-diego/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c4a5b8[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mSeattle[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/seattle/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c49500[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mMonterrey[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/monterrey/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c483d0[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mChicago[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/chicago/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c3ded0[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mDublin[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/dublin/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c2fb00[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mVirginia Beach[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/virginia-beach/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c223d8[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mPhiladelphia[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/philadelphia/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c20bf0[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mMontréal[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/montreal/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c13338[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mSan Jose[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/san-jose/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000c063b8[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mDenver[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/denver/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000bf6670[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mLos Angeles[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/los-angeles/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000be93f8[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mSavannah[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/savannah/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000be4bc8[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mMerida[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/merida/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000be3548[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mLas Vegas[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/las-vegas/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000be1040[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mSan Antonio[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/san-antonio/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000bdbb90[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mArizona[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/arizona/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000bda880[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mNew Orleans[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/new-orleans/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000bd94a8[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mWashington DC[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/dc/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000bd8468[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mDallas[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/dallas/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000bc3ab8[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mCarlsbad 5000[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/carlsbad-5000/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000baaa68[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mChengdu[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/chengdu/[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<RockNRoll::Race:0x00000000ba8768[0m
+  @location[32m=[0m[31m[1;31m"[0m[31mLuoping[1;31m"[0m[31m[0m,
+  @url[32m=[0m[31m[1;31m"[0m[31mhttp://www.runrocknroll.com/luoping/[1;31m"[0m[31m[0m[32m>[0m]
