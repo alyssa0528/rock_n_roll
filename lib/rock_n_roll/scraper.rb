@@ -5,6 +5,7 @@ class RockNRoll::Scraper
   ##end
 
 #scrape main page with list of all races
+#this is the list that will appear immediately when program runs
 #use this data to instantiate new objects of Race
   def scrape_races
     html = open("http://www.runrocknroll.com/")
@@ -14,20 +15,32 @@ class RockNRoll::Scraper
 
       @race.location = race_div.css("h5 a").text
       @race.url = race_div.css("h5 a").attribute("href").text
+      scrape_race_site
+      #binding.pry
+    end
+    #@race_site = Nokogiri::HTML(open(@race.url))
+    #binding.pry
       RockNRoll::Race.all #@all_races = @race.save #save method in Race
+  end
+
+  #data is getting incorrectly added to the last @race instance (Luoping) because it was the most recently accessed one...
+  def scrape_race_site #method that parses indiv race site
+    @race_site = Nokogiri::HTML(open(@race.url))
+    @race_site.search("#hero").each do |header|
+    @race.date = header.css("span.subhead").attribute("datetime").value
     end
   end
 
-  def race_site #method that parses indiv race site
-    scrape_races
-    RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
-      @doc = Nokogiri::HTML(open(website))
-      binding.pry
-    end
-  end
+#    scrape_races
+#    RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
+#      @doc = Nokogiri::HTML(open(website))
+      #binding.pry
+#    end
+#  end
 
   def dates
     @race.date
+    binding.pry
   end
 
   #def scrape_race_details
