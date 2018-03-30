@@ -19,7 +19,7 @@ class RockNRoll::Scraper
       scrape_race_description
       scrape_race_hashtag
       scrape_race_distances
-      #binding.pry
+      binding.pry
     end
       RockNRoll::Race.all #@all_races = @race.save #save method in Race
   end
@@ -49,8 +49,9 @@ class RockNRoll::Scraper
   def scrape_race_distances #parses race distances info
     @race_distances = []
     @distance_url = @race.url + "the-races/distances/"
-    @site = Nokogiri::HTML(open(@distance_url))
-    @site.search("div.sidenav").each do |distances|
+    puts @race_url
+    @race_site = Nokogiri::HTML(open(@distance_url))
+    @race_site.search("div.sidenav").each do |distances|
       distances.search("a").collect do |distance| #iterate through the XML of distances
         race_distance = distance.text #pull out each distance's text
         @race_distances << race_distance #adds the string of race_distance to the array
