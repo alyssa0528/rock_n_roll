@@ -18,8 +18,8 @@ class RockNRoll::Scraper
       scrape_race_date
       scrape_race_description
       scrape_race_hashtag
-      ##scrape_race_distances
-      #binding.pry
+      scrape_race_distances
+      binding.pry
     end
     #@race_site = Nokogiri::HTML(open(@race.url))
     #binding.pry
@@ -54,14 +54,20 @@ class RockNRoll::Scraper
     end
   end
 
-  #def scrape_race_distances
-  #  @distance_url = @race.url + "the-races/distances/"
-  #  @site = Nokogiri::HTML(open(@distance_url))
-  #  @site.search("div.sidenav").each do |distance|
-  #    @race.distances = distance.css("a").text
-  #  end
-  #end
-
+  def scrape_race_distances
+    @distance_url = @race.url + "the-races/distances/"
+    @site = Nokogiri::HTML(open(@distance_url))
+    @site.search("div.sidenav").each do |distances|
+      distances.search("a").each do |distance| #iterate through the XML of distances
+      race_distance = distance.text #pull out each distance's text
+      @race_distances = []
+      @race_distances << race_distance #adds the string of race_distance to the array
+      @race.distances = @race_distances.join(", ") #creates a comma-separated string of all the distances 
+      #binding.pry
+      end
+    end
+  end
+#@race.distances = distances.css("a").text
 end
 
 #    scrape_races
@@ -70,12 +76,6 @@ end
       #binding.pry
 #    end
 #  end
-
-  #def dates
-  #  @race.date
-  #end
-
-
 
   #def scrape_race_details
     #scrape_races
@@ -86,19 +86,6 @@ end
         #binding.pry
   #    end
 
-  #    @doc.search("#features").each do |info_box|
-  #      binding.pry
-  #      @race.description = info_box.css("div.column.first p").text
-
-  #
-      #  @race.twitter = social_media.css("div.twitter a").attribute("href").text
-      #  @race.facebook = social_media.css("div.facebook a").attribute("href").text
-      #  @race.instagram = social_media.css("div.instagram a").attribute("href").text
-      #  binding.pry
-        #binding.pry
-  #    end
-  #  end
-  #end
 
       #@doc.search("#races").each do |distance|
       #  binding.pry
