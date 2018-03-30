@@ -21,29 +21,21 @@ class RockNRoll::Scraper
       scrape_race_distances
       binding.pry
     end
-    #@race_site = Nokogiri::HTML(open(@race.url))
-    #binding.pry
       RockNRoll::Race.all #@all_races = @race.save #save method in Race
   end
 
-  #data is getting incorrectly added to the last @race instance (Luoping) because it was the most recently accessed one...
   def scrape_race_date #method that parses indiv race site
     @race_site = Nokogiri::HTML(open(@race.url))
     @race_site.search("#hero").each do |header|
       @race.date = header.css("span strong").text.strip
-    #@race.date = header.css("span.subhead").attribute("datetime").value
-    # for "Mar 31" format, use this scraping code:
-    # need to remove all the \n\t text enveloping the date
+    #@race.date = header.css("span.subhead").attribute("datetime").value gives the numeric date
     end
   end
 
   def scrape_race_description #method that parses indiv race site
-    #binding.pry
     @race_site = Nokogiri::HTML(open(@race.url))
     @race_site.search("#features").each do |info_box|
-      #binding.pry
     @race.description = info_box.css("div.column p").first.text
-    #binding.pry
     end
   end
 
@@ -55,19 +47,17 @@ class RockNRoll::Scraper
   end
 
   def scrape_race_distances
+    @race_distances = []
     @distance_url = @race.url + "the-races/distances/"
     @site = Nokogiri::HTML(open(@distance_url))
     @site.search("div.sidenav").each do |distances|
-      distances.search("a").each do |distance| #iterate through the XML of distances
-      race_distance = distance.text #pull out each distance's text
-      @race_distances = []
-      @race_distances << race_distance #adds the string of race_distance to the array
-      @race.distances = @race_distances.join(", ") #creates a comma-separated string of all the distances 
-      #binding.pry
+      distances.search("a").collect do |distance| #iterate through the XML of distances
+        race_distance = distance.text #pull out each distance's text
+        @race_distances << race_distance #adds the string of race_distance to the array
       end
+      @race.distances = @race_distances.join(", ") #creates a comma-separated string of all the distances
     end
   end
-#@race.distances = distances.css("a").text
 end
 
 #    scrape_races
