@@ -19,7 +19,7 @@ class RockNRoll::Scraper
       scrape_race_description
       scrape_race_hashtag
       scrape_race_distances
-      binding.pry
+      #binding.pry
     end
       RockNRoll::Race.all #@all_races = @race.save #save method in Race
   end
@@ -32,24 +32,27 @@ class RockNRoll::Scraper
     end
   end
 
-  def scrape_race_description #method that parses indiv race site
+  def scrape_race_description #method that parses indiv race site for description
     @race_site = Nokogiri::HTML(open(@race.url))
     @race_site.search("#features").each do |info_box|
     @race.description = info_box.css("div.column p").first.text
     end
   end
 
-  def scrape_race_hashtag
+  def scrape_race_hashtag #parses hashtag info
     @race_site = Nokogiri::HTML(open(@race.url))
     @race_site.search("#ribbon").each do |social_media|
       @race.hashtag = social_media.css("div.hash").text.chomp(' /')
     end
   end
 
-  def scrape_race_distances
+  def scrape_race_distances #parses race distances info
     @race_distances = []
     @distance_url = @race.url + "the-races/distances/"
-    @site = Nokogiri::HTML(open(@distance_url))
+    #@site = Nokogiri::HTML(open(@distance_url))
+    html = open(@distance_url, "User-Agent" => "Ruby/#{RUBY_VERSION}", "From" => "alyssa.kim@gmail.com",
+  "Referer" => "http://www.runrocknroll.com")
+    @site = Nokogiri::HTML(html) #open(@distance_url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
     @site.search("div.sidenav").each do |distances|
       distances.search("a").collect do |distance| #iterate through the XML of distances
         race_distance = distance.text #pull out each distance's text
