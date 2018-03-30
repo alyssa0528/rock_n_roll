@@ -49,10 +49,7 @@ class RockNRoll::Scraper
   def scrape_race_distances #parses race distances info
     @race_distances = []
     @distance_url = @race.url + "the-races/distances/"
-    #@site = Nokogiri::HTML(open(@distance_url))
-    html = open(@distance_url, "User-Agent" => "Ruby/#{RUBY_VERSION}", "From" => "alyssa.kim@gmail.com",
-  "Referer" => "http://www.runrocknroll.com")
-    @site = Nokogiri::HTML(html) #open(@distance_url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
+    @site = Nokogiri::HTML(open(@distance_url))
     @site.search("div.sidenav").each do |distances|
       distances.search("a").collect do |distance| #iterate through the XML of distances
         race_distance = distance.text #pull out each distance's text
@@ -62,25 +59,3 @@ class RockNRoll::Scraper
     end
   end
 end
-
-#    scrape_races
-#    RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
-#      @doc = Nokogiri::HTML(open(website))
-      #binding.pry
-#    end
-#  end
-
-  #def scrape_race_details
-    #scrape_races
-    #RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
-    #  @doc = Nokogiri::HTML(open(website)) #get HTML of each indiv race site
-  #    @doc.search("#hero").each do |header| #loops through the urls, specifically the header section at top of page
-  #      @race.date = header.css("span.subhead").attribute("datetime").value
-        #binding.pry
-  #    end
-
-
-      #@doc.search("#races").each do |distance|
-      #  binding.pry
-      #  @race.distances = distance.css("h3").text
-      #end
