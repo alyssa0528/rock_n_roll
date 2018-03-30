@@ -18,7 +18,7 @@ class RockNRoll::Scraper
       scrape_race_date
       scrape_race_description
       scrape_race_hashtag
-      scrape_race_distances
+      ##scrape_race_distances
       #binding.pry
     end
     #@race_site = Nokogiri::HTML(open(@race.url))
@@ -30,7 +30,10 @@ class RockNRoll::Scraper
   def scrape_race_date #method that parses indiv race site
     @race_site = Nokogiri::HTML(open(@race.url))
     @race_site.search("#hero").each do |header|
-    @race.date = header.css("span.subhead").attribute("datetime").value
+      @race.date = header.css("span strong").text.strip
+    #@race.date = header.css("span.subhead").attribute("datetime").value
+    # for "Mar 31" format, use this scraping code:
+    # need to remove all the \n\t text enveloping the date
     end
   end
 
@@ -47,9 +50,19 @@ class RockNRoll::Scraper
   def scrape_race_hashtag
     @race_site = Nokogiri::HTML(open(@race.url))
     @race_site.search("#ribbon").each do |social_media|
-      @race.hashtag = social_media.css("div.hash").text
+      @race.hashtag = social_media.css("div.hash").text.chomp(' /')
     end
   end
+
+  #def scrape_race_distances
+  #  @distance_url = @race.url + "the-races/distances/"
+  #  @site = Nokogiri::HTML(open(@distance_url))
+  #  @site.search("div.sidenav").each do |distance|
+  #    @race.distances = distance.css("a").text
+  #  end
+  #end
+
+end
 
 #    scrape_races
 #    RockNRoll::Race.all.collect {|r| r.url}.each do |website| #creates new array of just urls
@@ -58,19 +71,11 @@ class RockNRoll::Scraper
 #    end
 #  end
 
-  def dates
-    @race.date
-  end
+  #def dates
+  #  @race.date
+  #end
 
-  def scrape_race_distances
-    @distance_url = @race.url + "the-races/distances"
-    @site = Nokogiri::HTML(open(@distance_url))
-    @site.search("div.sidenav").each do |distance|
-      @race.distances = distance.css("a").text
-    end
-  end
 
-end
 
   #def scrape_race_details
     #scrape_races
