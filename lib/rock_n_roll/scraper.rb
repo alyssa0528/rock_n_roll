@@ -19,18 +19,18 @@ class RockNRoll::Scraper
       scrape_race_description
       scrape_race_hashtag
       #scrape_race_distances
-      @race_distances = []
-      @distance_url = @race.url + "the-races/distances/"
-      #Santiago's @race.url doesn't end in /!! 
-      puts @distance_url
-      @race_site = Nokogiri::HTML(open(@distance_url))
-      @race_site.search("div.sidenav").each do |distances|
-        distances.search("a").collect do |distance| #iterate through the XML of distances
-          race_distance = distance.text #pull out each distance's text
-          @race_distances << race_distance #adds the string of race_distance to the array
-        end
-        @race.distances = @race_distances.join(", ") #creates a comma-separated string of all the distances
-      end
+      #@race_distances = []
+      #@distance_url = @race.url + "the-races/distances/"
+      #Santiago's @race.url doesn't end in /!!
+      #puts @distance_url
+      #@race_site = Nokogiri::HTML(open(@distance_url))
+      #@race_site.search("div.sidenav").each do |distances|
+      #  distances.search("a").collect do |distance| #iterate through the XML of distances
+      #    race_distance = distance.text #pull out each distance's text
+      #    @race_distances << race_distance #adds the string of race_distance to the array
+      #  end
+      #  @race.distances = @race_distances.join(", ") #creates a comma-separated string of all the distances
+      #end
       #binding.pry
     end
       RockNRoll::Race.all #@all_races = @race.save #save method in Race
