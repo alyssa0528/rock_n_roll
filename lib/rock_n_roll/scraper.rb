@@ -1,9 +1,5 @@
 class RockNRoll::Scraper
 
-  ##def initialize(url = nil)
-  ##  @url = url
-  ##end
-
 #scrape main page with list of all races
 #this is the list that will appear immediately when program runs
 #use this data to instantiate new objects of Race
@@ -15,25 +11,15 @@ class RockNRoll::Scraper
 
       @race.location = race_div.css("h5 a").text
       @race.url = race_div.css("h5 a").attribute("href").text
+        if !@race.url.end_with? ("/")
+          @race.url += "/"
+        end
       scrape_race_date
       scrape_race_description
       scrape_race_hashtag
-      #scrape_race_distances
-      #@race_distances = []
-      #@distance_url = @race.url + "the-races/distances/"
-      #Santiago's @race.url doesn't end in /!!
-      #puts @distance_url
-      #@race_site = Nokogiri::HTML(open(@distance_url))
-      #@race_site.search("div.sidenav").each do |distances|
-      #  distances.search("a").collect do |distance| #iterate through the XML of distances
-      #    race_distance = distance.text #pull out each distance's text
-      #    @race_distances << race_distance #adds the string of race_distance to the array
-      #  end
-      #  @race.distances = @race_distances.join(", ") #creates a comma-separated string of all the distances
-      #end
-      #binding.pry
+      scrape_race_distances
     end
-      RockNRoll::Race.all #@all_races = @race.save #save method in Race
+      RockNRoll::Race.all
   end
 
   def scrape_race_date #method that parses indiv race site
@@ -58,17 +44,17 @@ class RockNRoll::Scraper
     end
   end
 
-  #def scrape_race_distances #parses race distances info
-  #  @race_distances = []
-  #  @distance_url = @race.url + "the-races/distances/"
+  def scrape_race_distances #parses race distances info
+    @race_distances = []
+    @distance_url = @race.url + "the-races/distances/"
   #  puts @race_url
-  #  @race_site = Nokogiri::HTML(open(@distance_url))
-  #  @race_site.search("div.sidenav").each do |distances|
-  #    distances.search("a").collect do |distance| #iterate through the XML of distances
-  #      race_distance = distance.text #pull out each distance's text
-  #      @race_distances << race_distance #adds the string of race_distance to the array
-  #    end
-  #    @race.distances = @race_distances.join(", ") #creates a comma-separated string of all the distances
-  #  end
-  #end
+    @race_site = Nokogiri::HTML(open(@distance_url))
+    @race_site.search("div.sidenav").each do |distances|
+      distances.search("a").collect do |distance| #iterate through the XML of distances
+        race_distance = distance.text #pull out each distance's text
+        @race_distances << race_distance #adds the string of race_distance to the array
+      end
+      @race.distances = @race_distances.join(", ") #creates a comma-separated string of all the distances
+    end
+  end
 end
