@@ -53,7 +53,7 @@ class RockNRoll::Scraper
     @race_site.search("div.sidenav").each do |distances|
       distances.search("a").collect do |distance| #iterate through the XML of distances
         race_distance = distance.text #pull out each distance's text
-        @race_distances << race_distance #adds the string of race_distance to the array
+        @race_distances << race_distance
       end
       @race.distances = @race_distances.join(", ") #creates a comma-separated string of all the distances
     end
