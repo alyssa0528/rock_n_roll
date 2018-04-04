@@ -34,6 +34,9 @@ class RockNRoll::Scraper
     @race_site = Nokogiri::HTML(open(@race.url))
     @race_site.search("#features").each do |info_box|
     @race.description = info_box.css("div.column p").first.text
+    if @race.description == "Leer Más"
+      @race.description = "Please click on the race's URL for more information."
+    end
     end
   end
 
