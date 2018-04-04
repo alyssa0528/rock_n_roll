@@ -1,13 +1,12 @@
 class RockNRoll::Scraper
 
-#scrape main page with list of all races
 #this is the list that will appear immediately when program runs
 #use this data to instantiate new objects of Race
   def scrape_races
     html = open("http://www.runrocknroll.com/")
     @doc = Nokogiri::HTML(html)
     @doc.search("div.mix").each do |race_div|
-      @race = RockNRoll::Race.new #Scraper collaborates with Race class
+      @race = RockNRoll::Race.new
 
       @race.location = race_div.css("h5 a").text
       @race.url = race_div.css("h5 a").attribute("href").text
@@ -26,7 +25,6 @@ class RockNRoll::Scraper
     @race_site = Nokogiri::HTML(open(@race.url))
     @race_site.search("#hero").each do |header|
       @race.date = header.css("span strong").text.strip
-    #@race.date = header.css("span.subhead").attribute("datetime").value gives the numeric date
     end
   end
 
