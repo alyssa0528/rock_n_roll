@@ -1,8 +1,6 @@
 # RockNRoll
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rock_n_roll`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby gem lets users view details of Rock 'n' Roll races held worldwide in the 2018-19 season via a CLI.
 
 ## Installation
 
@@ -22,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the text below and follow the on-screen prompts:
+
+    $ rock_n_roll 
 
 ## Development
 
