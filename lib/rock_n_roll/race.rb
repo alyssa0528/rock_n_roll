@@ -27,7 +27,6 @@ class RockNRoll::Race
   end
 
   def race_site
-    #binding.pry
     @race_site ||= Nokogiri::HTML(open(self.url))
   end
 
@@ -40,8 +39,6 @@ class RockNRoll::Race
   end
 
   def description #method that parses indiv race site for description
-    #@race_site = Nokogiri::HTML(open(@race.url))
-    #@race_site.search("#features").each do |info_box|
     @description = race_site.search("#features div.column p").first.text #correct
     #binding.pry
     if @description == "Leer Más"
@@ -68,17 +65,18 @@ class RockNRoll::Race
     #parses race distances info
     @race_distances = []
     distance_url = self.url + "the-races/distances/"
-    binding.pry
+    #binding.pry
     @distance_site = Nokogiri::HTML(open(distance_url))
     @distance_site.search("div.sidenav").each do |distances|
       distances.search("a").collect do |distance| #iterate through the XML of distances
         race_distance = distance.text #pull out each distance's text
         @race_distances << race_distance
-        binding.pry
+        #binding.pry
       end
+    end
     @distances = @race_distances.join(", ") #creates a comma-separated string of all the distances
       #binding.pry
-    end
+    #end
   end
 end
 
