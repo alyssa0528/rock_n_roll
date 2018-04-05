@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["'alyssa.kim@gmail.com'"]
 
   spec.summary       = %q{This gem returns information about Rock 'n' Roll races around the world.}
-  spec.description   = %q{This gem provides information on cities, dates, distances, hashtags, and social media links to Rock 'n' Roll races worldwide.}
+  spec.description   = %q{This gem provides information on cities, dates, distances, hashtags, and URLs to Rock 'n' Roll races worldwide.}
   spec.homepage      = "https://github.com/alyssa0528/rock_n_roll"
   spec.license       = "MIT"
 
