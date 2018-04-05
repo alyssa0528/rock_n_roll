@@ -21,9 +21,6 @@ class RockNRoll::CLI
       while input != "exit"
       input = gets.strip.downcase
       if input.to_i > 0 && input.to_i <= RockNRoll::Race.all.length
-        #Call RockNRoll::Race.all to pull up the @@all array, and from there, input.to_1 -1 will retrieve appropriate race details.
-        #needs retrieve method
-        #RockNRoll::Scraper.new.scrape_race_details[input.to_i - 1]
         race = RockNRoll::Race.retrieve(input.to_i)
         show_details(race)
         puts "Enter another number to see race details. Type 'list' to see the full list or 'exit':"
@@ -38,7 +35,7 @@ class RockNRoll::CLI
   end
 
   def show_details(race)
-    puts "~*~*~*~* Details for #{race.location} ~*~*~*~*"
+    puts "~*~*~*~*~*~*~* Details for #{race.location} ~*~*~*~*~*~*~*"
     puts "Date(s):              #{race.date}"
     puts "Distance(s):          #{race.distances}"
     puts "Description:          #{race.description}"
