@@ -3,13 +3,13 @@ class RockNRoll::CLI
   def call
     puts "~~~~~Welcome to the Rock 'n' Roll 2018-19 races!~~~~~"
     sleep(1)
-    RockNRoll::Scraper.new.scrape_races
+    RockNRoll::Scraper.new.create_races
     show_list
     menu
   end
 
   def show_list
-    @races = RockNRoll::Race.all #@@all
+    @races = RockNRoll::Race.all
     @races.each.with_index(1) do |race, index|
       puts "#{index}. #{race.location}"
     end
@@ -20,7 +20,7 @@ class RockNRoll::CLI
     while input != "exit"
       puts "Enter the number of the race you'd like more information about. Alternatively, type 'list' to see the full list of races, or type 'exit':"
       input = gets.strip.downcase
-      if input.to_i > 0 && input.to_i <= RockNRoll::Race.all.length 
+      if input.to_i > 0 && input.to_i <= RockNRoll::Race.all.length
         #Call RockNRoll::Race.all to pull up the @@all array, and from there, input.to_1 -1 will retrieve appropriate race details.
         #needs retrieve method
         #RockNRoll::Scraper.new.scrape_race_details[input.to_i - 1]
