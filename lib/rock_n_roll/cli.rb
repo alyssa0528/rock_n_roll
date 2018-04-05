@@ -23,6 +23,7 @@ class RockNRoll::CLI
       if input.to_i > 0 && input.to_i <= RockNRoll::Race.all.length
         race = RockNRoll::Race.retrieve(input.to_i)
         show_details(race)
+        puts ""
         puts "Enter another number to see race details. Type 'list' to see the full list or 'exit':"
       elsif input == "list"
         show_list
