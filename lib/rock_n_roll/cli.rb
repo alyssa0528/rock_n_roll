@@ -36,12 +36,16 @@ class RockNRoll::CLI
   end
 
   def show_details(race)
-    puts "~*~*~*~*~*~*~* Details for #{race.location} ~*~*~*~*~*~*~*"
-    puts "Date(s):              #{race.date}"
-    puts "Distance(s):          #{race.distances}"
-    puts "Description:          #{race.description}"
-    puts "Event Hashtag:        #{race.hashtag}"
-    puts "Event URL:            #{race.url}"
+    if race.location != "TBD"
+      puts "~*~*~*~*~*~*~* Details for #{race.location} ~*~*~*~*~*~*~*"
+      puts "Date(s):              #{race.date}"
+      puts "Distance(s):          #{race.distances}"
+      puts "Description:          #{race.description}"
+      puts "Event Hashtag:        #{race.hashtag}"
+      puts "Event URL:            #{race.url}"
+    else
+      puts "Check back again soon for more details for this race!"
+    end 
   end
 
   def exit_program
