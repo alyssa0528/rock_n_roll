@@ -10,11 +10,11 @@ class RockNRoll::Race
   end
 
   def self.new_from_list(race)
-    location = race.css("h5 a").text
+    location = race.css("h3 a").text
     if location == ""
       location = "TBD"
     end
-    url = race.css("h5 a").attribute("href").text
+    url = race.css("h3 a").attribute("href").text
     if !url.end_with?("/")
       url += "/"
     elsif url == ""

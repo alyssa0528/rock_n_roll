@@ -1,8 +1,8 @@
 class RockNRoll::Scraper
 
   def scrape_races
-    @doc = Nokogiri::HTML(open("http://www.runrocknroll.com/"))
-    @doc.search("div.mix")
+    @doc = Nokogiri::HTML(open("https://www.runrocknroll.com/"))
+    @doc.search("div.race-item")
   end
 
   def create_races
