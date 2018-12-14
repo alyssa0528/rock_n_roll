@@ -14,7 +14,7 @@ class RockNRoll::Race
     if location == ""
       location = "TBD"
     end
-    url = race.css("h3 a").attribute("href").text
+    url = "https://www.runrocknroll.com" + race.css("h3 a").attribute("href").text
     if !url.end_with?("/")
       url += "/"
     elsif url == ""
@@ -36,12 +36,12 @@ class RockNRoll::Race
   end
 
   def date
-    @date = race_site.search("#hero span strong").text.strip
+    @date = race_site.search("h3 time").text.strip
   end
 
   def description
-    @description = race_site.search("#features div.column p").first.text
-    if @description == "Leer Más"
+    @description = race_site.search(".caption p").first.text.strip
+    if @description == "Leer Más" || @description == ""
       @description = "Please click on the race's URL for more information."
     else
       @description
@@ -49,16 +49,16 @@ class RockNRoll::Race
   end
 
   def hashtag
-      @hashtag = race_site.search("#ribbon div.hash").text.chomp(' /')
+    @hashtag = race_site.search(".twitter-handle").text.chomp(' /').strip
   end
 
   def distances
     @race_distances = []
-    distance_url = self.url + "the-races/distances/"
+    distance_url = self.url + "the-races/courses/"
     @distance_site = Nokogiri::HTML(open(distance_url))
-    @distance_site.search("div.sidenav").each do |distances|
+    @distance_site.search("div ul.nav-justified li").each do |distances|
       distances.search("a").collect do |distance| #iterate through the XML of distances
-        race_distance = distance.text
+        race_distance = distance.text.strip
         @race_distances << race_distance
       end
     end

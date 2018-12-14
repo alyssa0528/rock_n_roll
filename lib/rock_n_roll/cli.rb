@@ -1,7 +1,7 @@
 class RockNRoll::CLI
 
   def call
-    puts "~~~~~Welcome to the Rock 'n' Roll 2018-19 races!~~~~~"
+    puts "~~~~~Welcome to the Rock 'n' Roll 2019-20 races!~~~~~"
     sleep(1)
     RockNRoll::Scraper.new.create_races
     show_list
@@ -45,7 +45,7 @@ class RockNRoll::CLI
       puts "Event URL:            #{race.url}"
     else
       puts "Check back again soon for more details for this race!"
-    end 
+    end
   end
 
   def exit_program
