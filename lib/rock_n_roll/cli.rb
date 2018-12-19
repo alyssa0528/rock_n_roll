@@ -10,8 +10,10 @@ class RockNRoll::CLI
 
   def show_list
     @races = RockNRoll::Race.all
-    @races.each.with_index(1) do |race, index|
-      puts "#{index}. #{race.location}"
+    @races.each.with_index() do |race, index|
+      if race.location != "Virtual Run"
+        puts "#{index}. #{race.location}"
+      end
     end
   end
 
