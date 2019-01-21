@@ -36,6 +36,3 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_dependency "nokogiri"
 end
-
-
-# spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
