@@ -6,8 +6,8 @@ require "rock_n_roll/version"
 Gem::Specification.new do |spec|
   spec.name          = "rock_n_roll"
   spec.version       = RockNRoll::VERSION
-  spec.authors       = ["'Alyssa Kim'"]
-  spec.email         = ["'alyssa.kim@gmail.com'"]
+  spec.authors       = ["Alyssa Kim"]
+  spec.email         = ["alyssa.kim@gmail.com"]
 
   spec.summary       = %q{This gem returns information about Rock 'n' Roll races around the world.}
   spec.description   = %q{This gem provides information on cities, dates, distances, hashtags, and URLs to Rock 'n' Roll races worldwide.}
@@ -26,7 +26,6 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir        = "exe"
   spec.executables   = ["rock_n_roll"]
   spec.require_paths = ["lib"]
 
