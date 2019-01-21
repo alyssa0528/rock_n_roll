@@ -1,6 +1,6 @@
 # RockNRoll
 
-This Ruby gem lets users view details of Rock 'n' Roll races held worldwide in the 2018-19 season via a CLI.
+This Ruby gem lets users view details of Rock 'n' Roll races held worldwide in the 2018-19 season via a CLI. Get information about any Rock 'n' Roll city's race distances, dates, descriptions, and more.
 
 ## Installation
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 Type the text below and follow the on-screen prompts:
 
-    $ rock_n_roll 
+    $ rock-n-roll 
 
 ## Development
 
@@ -32,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'alyssa0528'/rock_n_roll. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alyssa0528/rock_n_roll. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
